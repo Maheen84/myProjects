@@ -1,0 +1,27 @@
+import random
+word_bank =['read','upwards','love','mobile']
+word = random.choice(word_bank)
+guessWord = ['_']*len(word)
+attempts = 10
+
+while attempts > 0:
+    print("\n current word : "+" ".join(guessWord))
+    guess = input("guess the word: ").lower()
+
+    if guess in word:
+        for i in range (len(word)):
+            if word[i]== guess:
+                guessWord[i] = guess
+        print("correct guess !!")
+
+    else:
+        attempts -= 1
+        print("wrong attempt !!!\n the attempts left :"+ str(attempts))
+
+    if '_' not in guessWord:
+        print(" congrats !!! you guessed the word "+ word)
+        break
+
+    if '_' in guessWord and attempts == 0:
+        print("you've lost the game !!!! \n the correct word was: "+word)
+
